@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskBoard — Ship It</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-mark">◈</span>
+          <span class="brand-name">TaskBoard</span>
+        </div>
+        <div class="header-actions">
+          <button class="btn-share" id="btn-share">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+              <polyline points="16 6 12 2 8 6" />
+              <line x1="12" y1="2" x2="12" y2="15" />
+            </svg>
+            Share Board
+          </button>
+          <button class="btn-add-card" id="btn-add-card">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            New Card
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="toast" id="toast">Link copied to clipboard</div>
+
+    <main class="board" id="board">
+      <div class="board-empty" id="board-empty">
+        <div class="empty-icon">◈</div>
+        <p class="empty-title">Nothing here yet.</p>
+        <p class="empty-sub">Create a card to start organizing your work.</p>
+        <button class="btn-add-card-empty" id="btn-add-card-empty">
+          + New Card
+        </button>
+      </div>
+    </main>
+
+    <div
+      class="modal-overlay"
+      id="modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-card-title"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-card-title">New Card</h2>
+          <button class="modal-close" id="modal-card-close" aria-label="Close">
+            ✕
+          </button>
+        </div>
+        <label class="modal-label" for="card-title-input">Card title</label>
+        <input
+          class="modal-input"
+          id="card-title-input"
+          type="text"
+          placeholder="e.g. Sprint 3 tasks, Bugs to fix…"
+          maxlength="60"
+          autocomplete="off"
+        />
+        <div class="modal-footer">
+          <button class="btn-cancel" id="modal-card-cancel">Cancel</button>
+          <button class="btn-primary" id="modal-card-confirm">
+            Create Card
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="modal-todo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-todo-title"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-todo-title">Add Todo</h2>
+          <button class="modal-close" id="modal-todo-close" aria-label="Close">
+            ✕
+          </button>
+        </div>
+        <label class="modal-label" for="todo-text-input">Task</label>
+        <input
+          class="modal-input"
+          id="todo-text-input"
+          type="text"
+          placeholder="What needs to get done?"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <div class="modal-footer">
+          <button class="btn-cancel" id="modal-todo-cancel">Cancel</button>
+          <button class="btn-primary" id="modal-todo-confirm">Add Todo</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
